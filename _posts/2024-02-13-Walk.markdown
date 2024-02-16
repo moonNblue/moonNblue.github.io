@@ -21,7 +21,7 @@ note app을 만들고 싶었는데
 
 그나저나 오늘 본 인상적인 짤이 있다.
 
-<img src="./picture1.png" height="250px" title="Github_Logo"/>
+<img src="./picture1.png" height="250px" title="Korean_Socrate"/>
 
 한국의 소크라테스랄까.
 
@@ -30,3 +30,5 @@ note app을 만들고 싶었는데
 내일 또 개발해야지.
 
 오랜만에 코딩하니까 재미있다.
+
+(내일은 폰트수정이랑 이미지파일 수정해놔야겠다.)
