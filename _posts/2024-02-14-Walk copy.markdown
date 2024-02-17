@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "실험중"
+date:   2024-02-17 12:09:31 +0900
+categories: science
+author: "moon&blue"
+img: picture1.png
+---
+https://github.com/moonNblue/NoteApp.git
+
+
+note app을 만들고 싶었는데
+조악하게 나마 시작한다.
+
+일단, python의 쓰기 읽기 문법이 익숙하지 않다.
+하지만 개그치 해냄
+
+그리고 GUI로 표현해내고 싶어서 tkinter를 활용해보려했다.
+근데 이것도 문법이 만만치 않다.
+
+아니 애초에 만만해보이는 건 재미가 없지.
+<center>
+가운데정렬 실험
+</center>
+
+![picture1](https://github.com/moonNblue/moonNblue.github.io/assets/160224720/dc9993ad-e6f1-48d5-8448-641535f41e8d)
+
+
+![before_after](https://github.com/moonNblue/moonNblue.github.io/assets/160224720/3d11e7eb-105f-421a-a729-98bcba2ca4c2)
+
+이미지 크기 조정은 어떻게 해야되지..
+img 태그로 해야되나 보다!
+
+폰트 수정 완료! 이미지 수정 완료!
+
++) 다크테마에서 화이트 테마로 수정된건 원래 true false로 설정할 수 있던 옵션사항이었다!
+
+내일 할 일:
+- 자간 띄기 없애기
+- 카테고리 수정하기
