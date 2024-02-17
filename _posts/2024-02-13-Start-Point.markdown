@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Start Point"
-date:   2024-02-13 20:02:31 +0900
+date:   2024-02-16 20:02:31 +0900
 categories: science
 author: "moon&blue"
 ---
