@@ -18,9 +18,7 @@ note app을 만들고 싶었는데
 근데 이것도 문법이 만만치 않다.
 
 아니 애초에 만만해보이는 건 재미가 없지.
-<center>
 가운데정렬 실험
-<center>
 
 ![Korean_Socrate](imges/picture1.png){:height="250px"}
 
