@@ -14,7 +14,7 @@ url: "https://moonnblue.github.io/" # the base hostname & protocol for your site
 twitter_username: __
 github_username:  moonNblue
 paginate: 5
-theme-dark: true #Set to true to change to dark website theme
+theme-dark: false #Set to true to change to dark website theme
 
 plugins: [jekyll-paginate, kramdown]
 # Build settings
