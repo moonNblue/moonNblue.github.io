@@ -21,6 +21,6 @@ note app을 만들고 싶었는데
 
 그나저나 오늘 본 인상적인 짤이 있다.
 
-![Korean_Socrate](picture1.png){:height="250px"}
+![Korean_Socrate](./picture1.png){:height="250px"}
 
-![ba](befor_after.png){:height="250px"}
+![ba](./befor_after.png){:height="250px"}
