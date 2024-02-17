@@ -2,12 +2,10 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
-
 
 // Our variables
 //$base-font-family: "Nanum Gothic", Arial, sans-serif;
-$base-font-family: "Gowun Batang", Helvetica, Arial, sans-serif;
+$base-font-family: "PT Sans", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
@@ -55,6 +53,7 @@ $on-laptop:        800px;
         "color"
 ;
 
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 /**
  * Reset some basic elements
@@ -537,6 +536,10 @@ pre {
   padding-bottom: 3em !important;
   p {
     font-size: 1.5rem;
+    // 한글에 대한 스타일 추가
+    body:lang(ko) & {
+      font-size: 1rem;
+    }
   }
   h2 {
     font-size: 32px;
