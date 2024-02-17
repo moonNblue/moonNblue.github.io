@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "noteApp2"
-date:   2024-02-13 23:04:32 +0900
+date:   2024-02-14 23:04:32 +0900
 categories: science
 author: "moon&blue"
 ---

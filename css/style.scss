@@ -2,14 +2,26 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
 
 // Our variables
 //$base-font-family: "Nanum Gothic", Arial, sans-serif;
-$base-font-family: "PT Sans", Helvetica, Arial, sans-serif;
+$base-font-family: "Gowun Batang", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
+
+// fonts.scss 였던 것
+// English font
+//$english-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//$english-font-size: 24px;
+
+// Korean font
+//$korean-font: "Gowun Batang", sans-serif;
+//$korean-font-size: 14px;
+
 
 $spacing-unit:     30px;
 // Width of the content area
@@ -43,7 +55,6 @@ $on-laptop:        800px;
         "color"
 ;
 
-@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
 
 /**
  * Reset some basic elements
@@ -250,7 +261,7 @@ pre {
 
 .post {
   font-family: "Source Sans Pro";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
   padding-top: 0;
 }
