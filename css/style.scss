@@ -535,11 +535,9 @@ pre {
   margin-bottom: $spacing-unit;
   padding-bottom: 3em !important;
   p {
-    font-size: 1.5rem;
-    // 한글에 대한 스타일 추가
-    body:lang(ko) & {
-      font-size: 1rem;
-    }
+    font-family: 'Gowun Batang', Courier, monospace;
+    font-size: 1rem;
+    //font-size: 1.5rem;
   }
   h2 {
     font-size: 32px;
