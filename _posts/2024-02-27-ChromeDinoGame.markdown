@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Chrome Dino Game"
-date:   2024-02-27 03:30:34 +0900
+date:   2024-02-27 18:34:34 +0900
 categories: science
 author: "moon&blue"
 ---
@@ -224,8 +224,171 @@ class Dinosaur:
                 self.dino_duck = False
                 self.dino_run = False
                 self.dino_jump = True
-            
+            elif userInput[pygame.K_DOWN] and not self.dino_jump:
+                self.dino_duck = True
+                self.dino_run = False
+                self.dino_jump = False
+            elif not (self.dino_jump or userInput[pygame.K_DOWN]):
+                self.dino_duck = False
+                self.dino_run = True
+                self.dino_jump = False
 ```
-도대체가 이 `self`변수는 뭘까
 
-이 다음부터는 내일 마저 써야겠다.
+`up key나 sapce를 누르고 dino가 jump상태가 아닐 때`
+- 수그리기 = False
+- 달리기 = False
+- 점프하기 = True
+
+또는
+
+`down key를 누르고 jump 상태가 아닐 때`
+- 수그리기 = True
+- 달리기 = False
+- 점프하기 = False
+
+또는
+
+`dino_jump가 아니고 K_DOWN이 아닐 때`
+- 수그리기 = False
+- 달리기 = True
+- 점프하기 = False
+
+
+python에서 && 이나 ||은 and와 or로 작성하나보다.
+else if는 elif
+
+### 캐릭터 숙이기
+```python
+def duck(self):
+    self.image = self.duck_img[self.step_index // 5] # 헉 이렇게 줄인 이미지였다니
+    self.dino_rect = self.image.get_rect()
+    self.dino_rect.x = self.X_POS
+    self.dino_rect.y = self.Y_POS_DUCK
+    self.step_index += 1
+```
+`get_rect()`에 대하여!
+
+game box 같은 걸 가져오는 함수라고 함
+
+[get_rect()](https://www.jbmpa.com/pygame/4)
+
+duck_img를 변형한 것을 image에 할당.
+
+그 후 get_rect()를 통해 self.dino_rect에 이미지 위치 및 크기 객체를 반환!
+
+### 계속해서 dinosaur 클래스 내부 함수
+
+```python
+def run(self):
+    self.image = self.run_img[self.step_index //5]
+    self.dion_rect = self.image.get_rect()
+    self.dino_rect.x = self.X_POS
+    self.dino_rect.y = self.Y_POS
+    self.step_index += 1
+```
+x좌표 위치 설정해주고~
+
+y좌표 위치 설정해주고~
+
+```python
+def jump(self):
+    self.image = self.jump_img
+    if self.dino_jump:
+        self.dino_rect.y -= self.jump_vel * 4
+        self.jump_vel -= 0.8
+    
+    if self.jump_vel < -self.JUMP_VEL:
+        self.dino_jump = False
+        self.jump_vel = self.JUMP_VEL
+
+```
+
+오오... 객체에 저걸 때에 따라서 대입하는 식으로 코딩하는구만
+
+1. 점프 중 이미지로 변경
+
+2. dino_jump가 True인 상황에서 캐릭터 효과 변경
+
+3. 점프 속도 < 최대 점프 속도:
+    dino_jump를 false로 설정,
+    self.jump_vel을 다시 최대 점프 속도로 설정!
+
+-> 캐릭터의 점프 동작 제어, 중력과 최대 점프 높이 제한 위한 설정.
+
+### 캐릭터 그리기
+```python
+def draw(self, SCREEN):
+    SCREEN.blit(self.image, (self.dino_rect.x, self.dino_rect.y))
+
+```
+self.image를 self.dino_rect.x, self.dino_rect.y에 그리는 명령!
+
+그런데, bilt함수는 무엇이냐!
+
+얘는 pygame에서 나온 함수!
+
+아래 두 개 사이트를 참고하면서 공부하면 좋을 것 같다.
+
+[jbmpa](https://www.jbmpa.com/pygame/9?sst=wr_hit)
+
+[NaverBlog](https://m.blog.naver.com/scyan2011/221980550330)
+
+
+## 장애물 클래스
+이번에는 한번에 다 적어버리겠다!
+```python
+class Obstacle:
+    def __init__(self, image, type):
+        self.image = image
+        self.type = type
+        self.rect = self.image[self.type].get_rect()
+        self.fect.x = SCREEN_WIDTH
+    
+    #장애물 업데이트
+    def update(self):
+        self.rect.x -= game_speed
+        if self.rect.x < -self.rect.width:
+            obstacles.pop()
+    
+    #장애물 그리기
+    def draw(self. SCREEN):
+        SCREEN.blit(self, image[self.type], self.rect)
+```
+
+## 작은 선인장 클래스
+```python
+class SmallCatus(Obstacle):
+    def __init__(self, image):
+        self.type = random.randint(0.2)
+        super().__init__(image, self.type)
+        self.rect.y = 325
+```
+
+## 큰 선인장 클래스
+```python
+class LargeCactus(Obstacle):
+    def __init__(self, image):
+        self.type = random.randint(0, 2)
+        super().__init__(image, self.type)
+        self.rect.y = 300
+```
+
+## 새 클래스
+```python
+class Bird(Obstacle):
+    BIRD_HEIGHTS = [250, 290, 320]
+    def __init__(self, image):
+        self.type = 0
+        super().__init__(image, self.type)
+        self.rect.y = random.choice(self.BIRD_HEIGHTS)
+        self.index = 0
+    # 새 그리기
+    def draw(self, SCREEN):
+        if self.index >= 9:
+            self.index = 0
+        SCREEN.blit(self.image[self.index // 5], self.rect)
+        self.index += 1
+
+```
+
+마지막 메인 함수는 다음 포스트에 업로드!
